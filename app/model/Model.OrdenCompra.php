@@ -23,10 +23,10 @@
             return $ordenesC;
         }
 
-        function insertOrden($nombre,$apellido,$nombre_producto,$tipoDeProducto,$descripcion,$imagen){
+        function insertOrden($nombre,$apellido,$nombre_producto,$tipoDeProducto,$descripcion,$imagen,$fecha){
        
-        $query = $this->db->prepare('INSERT INTO ordendecompra (nombre,apellido,nombre_producto,tipoProducto,descripcion,imagen) VALUES (?,?,?,?,?,?) ');
-        $query -> execute([$nombre,$apellido,$nombre_producto,$tipoDeProducto,$descripcion,$imagen]); 
+        $query = $this->db->prepare('INSERT INTO ordendecompra (nombre,apellido,nombre_producto,tipoProducto,descripcion,imagen,fecha) VALUES (?,?,?,?,?,?,?) ');
+        $query -> execute([$nombre,$apellido,$nombre_producto,$tipoDeProducto,$descripcion,$imagen,$fecha]); 
 
         $id = $this->db->lastInsertId();
         header("Location: listar");
@@ -45,6 +45,10 @@
                 if (!empty($data['nombre'])) {
                     $fields[] = 'nombre = ?';
                     $values[] = $data['nombre'];
+                }
+                if (!empty($data['fecha'])) {
+                    $fields[] = 'fecha = ?';
+                    $values[] = $data['fecha'];
                 }
                 if (!empty($data['descripcion'])) {
                     $fields[] = 'descripcion = ?';

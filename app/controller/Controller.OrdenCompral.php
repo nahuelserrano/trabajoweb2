@@ -55,6 +55,9 @@ class controllerOrdenes{
         if (!isset($_POST['tipoDeProducto']) || empty($_POST['tipoDeProducto'])) {
             return $this->viewError->showError('Falta completar tipo De Producto');
         }
+        if (!isset($_POST['fecha']) || empty($_POST['fecha'])) {
+            return $this->viewError->showError('Falta completar fecha');
+        }
         //en este paso proceso la imagen
         $imagen = null;
     if (isset($_FILES['input_name']) && $_FILES['input_name']['error'] == 0) {
@@ -74,7 +77,7 @@ class controllerOrdenes{
     }
      
        
-
+        $fecha = $_POST['fecha'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $nombre_producto = $_POST['nombre_producto'];
@@ -84,7 +87,7 @@ class controllerOrdenes{
 
        
         
-        $this->ModelOrdenDeCompra-> insertOrden($nombre,$apellido,$nombre_producto, $tipoDeProducto,$descripcion,$imagen);
+        $this->ModelOrdenDeCompra-> insertOrden($nombre,$apellido,$nombre_producto, $tipoDeProducto,$descripcion,$imagen,$fecha);
         header('Location: ' . BASE_URL . 'home');
     }
     
@@ -112,6 +115,10 @@ class controllerOrdenes{
     
         if (isset($_POST['descripcion']) && !empty($_POST['descripcion'])) {
             $data['descripcion'] = $_POST['descripcion'];
+        }
+        
+        if (isset($_POST['fecha']) && !empty($_POST['fecha'])) {
+            $data['fecha'] = $_POST['fecha'];
         }
         if (isset($_POST['nombre']) && !empty($_POST['nombre'])) {
             $data['nombre'] = $_POST['nombre'];
