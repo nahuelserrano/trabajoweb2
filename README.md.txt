@@ -1,10 +1,73 @@
-trabajo practico formato libre
-Tema: Productos, distribuidora y categorias.
+NOMBRE: nahuel serrano
+Documentación del Trabajo Práctico
 
-Descripción de la página web:
-Es una plataforma de gestión contable diseñada para registrar y administrar las órdenes de venta de una distribuidora. Permite a los encargados llevar un control detallado de las ventas, con opciones de búsqueda y filtrado por categoría. La parte pública facilita la visualización de las órdenes, mientras que los administradores, tras iniciar sesión, pueden gestionar categorías y órdenes de compra, incluyendo la edición, eliminación y creación de nuevos registros.
-Diagrama:
+Tema: Productos, Distribuidora y Categorías
+
+1. Introducción
+
+Este proyecto consiste en una pagina web para la gestión contable de una distribuidora, enfocada en la administración y registro de órdenes de compra.
+
+2. Objetivos
+
+Permitir el registro y administración de órdenes de compra.
+
+Facilitar la visualización de órdenes de manera pública.
+
+Ofrecer herramientas a los administradores para gestionar productos, categorías y órdenes de compra.
+
+Implementar opciones de búsqueda y filtrado por categorías.
+
+Proporcionar seguridad mediante autenticación de usuarios.
+
+3. Características Principales
+
+Panel público: Permite la visualización de las órdenes de compra.
+
+Panel de administración: Requiere inicio de sesión y permite:
+
+Crear, editar y eliminar órdenes de compra y categorias
+
+Administrar categorías de productos.
+
+Gestionar los registros de productos.
+
+Búsqueda y filtrado: Los usuarios pueden buscar ordenes de compra por categoría.
+
+Autenticación de usuarios: Solo los administradores pueden modificar los datos de la plataforma.
+
+5. Estructura de la Base de Datos
+
+Tablas principales:
+
+Usuarios
+
+id (INT, PRIMARY KEY, AUTO_INCREMENT)
+
+gmail (VARCHAR, UNIQUE)
+
+password (VARCHAR))
+
+
+Categorías
+
+id (INT, PRIMARY KEY, AUTO INCREMENTAL)
+
+TipoProducto (VARCHAR))
 
 
 
-Usuario: roark.nahuelthiago@gmail.com password: admin
+Órdenes de Compra
+
+id (INT, PRIMARY KEY, AUTO INCREMENTAL)
+
+nombre (VARCHAR)
+
+apellido (varchar)
+
+nombre_producto (varchar)
+
+TipoProducto (int,FK)
+
+descripcion(text)
+
+imagen(varchar)
